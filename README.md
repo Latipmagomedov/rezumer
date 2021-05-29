@@ -1,4 +1,5 @@
-# rezumer
+<h1>WEB, PWA - Приложение для создания личного резюме на VUE JS.</h1>
+<h2>Технологии разработки: HTML, SCSS, VUE JS</h2>
 
 ## Project setup
 ```
