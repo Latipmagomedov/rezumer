@@ -1,7 +1,7 @@
 <template>
   <div class="templates">
     <div class="templates__wrapper">
-      <div class="templates__template">
+      <div ref="template" class="templates__template">
         <div class="template__header">
           <div class="template__title">
             {{ `${user.name} ${user.surname}` }}
@@ -59,8 +59,13 @@
           </div>
         </div>
       </div>
+
       <div class="templates__btn-download">
-        <a href="#" class="templates__download">Скачать</a>
+        <a
+          @click.prevent="download"
+          class="templates__download"
+          >Скачать</a
+        >
       </div>
     </div>
   </div>
@@ -74,6 +79,15 @@ export default {
     };
   },
   mounted() {},
+  methods: {
+    download() {
+      let doc = new jsPDF("p", "pt", "a4");
+
+      doc.addHTML(this.$refs.template, function () {
+        doc.save("html.pdf");
+      });
+    },
+  },
 };
 </script>
 
@@ -180,6 +194,7 @@ $blue: #1771f1;
   color: #fff;
   font-size: 18px;
   text-decoration: none;
+  cursor: pointer;
 }
 </style>
 

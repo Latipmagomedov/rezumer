@@ -149,8 +149,8 @@ export default {
   },
   methods: {
     next() {
-      console.log(this.user);
       localStorage.user = JSON.stringify(this.user);
+      this.$router.push("/templates");
     },
   },
 };
